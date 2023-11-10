@@ -24,5 +24,6 @@
 
 /* CSS Modules feature */
 .nav a:global(.active) {
+  /* The :global selector is used to indicate that the style rules inside the parentheses should not be scoped to the current module but should apply globally.*/
   background-color: var(--color-dark--0);
 }

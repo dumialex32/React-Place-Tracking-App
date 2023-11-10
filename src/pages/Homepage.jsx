@@ -21,6 +21,7 @@ export default function Homepage() {
         <Link to="app" className="cta">
           Start tracking now
         </Link>
+        <a></a>
       </section>
     </main>
   );
