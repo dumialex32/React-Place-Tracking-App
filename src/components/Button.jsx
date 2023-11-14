@@ -10,7 +10,9 @@ Button.propTypes = {
 
 function Button({ children, type, onClick }) {
   return (
-    <button className={`${styles.btn} ${styles[type]}`}>{children}</button>
+    <button className={`${styles.btn} ${styles[type]}`} onClick={onClick}>
+      {children}
+    </button>
   );
 }
 
