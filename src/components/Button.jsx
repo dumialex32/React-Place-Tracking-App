@@ -1,6 +1,5 @@
 import styles from "./Button.module.css";
 import PropTypes from "prop-types";
-console.log(styles);
 
 Button.propTypes = {
   children: PropTypes.string,

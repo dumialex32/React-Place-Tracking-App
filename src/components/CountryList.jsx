@@ -2,13 +2,15 @@ import styles from "./CountryList.module.css";
 import PropTypes from "prop-types";
 import CountryItem from "./CountryItem";
 import Spinner from "./Spinner";
+import useCities from "./contexts/useCities";
 
 CountryList.propTypes = {
   cities: PropTypes.array,
   isLoading: PropTypes.bool,
 };
 
-function CountryList({ cities, isLoading }) {
+function CountryList() {
+  const { cities, isLoading } = useCities();
   const countries = cities.reduce(
     (arr, city) =>
       arr.find((el) => el.country === city.country)
