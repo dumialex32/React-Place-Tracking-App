@@ -34,3 +34,39 @@ export async function AJAX(url, data) {
     throw err;
   }
 }
+
+export function getCurrentPosition() {
+  return new Promise((resolve, reject) => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          resolve({ latitude, longitude });
+        },
+        (error) => {
+          switch (error.code) {
+            case error.PERMISSION_DENIED:
+              return reject(
+                new Error("User denied the request for permission")
+              );
+
+            case error.POSITION_UNAVAILABLE:
+              return reject(new Error("Location information is unavailable"));
+
+            case error.TIMEOUT:
+              return reject(
+                new Error("The request to get the user location timed out")
+              );
+
+            default:
+              reject(
+                new Error(
+                  "Something went wrong while trying to get the user position"
+                )
+              );
+          }
+        }
+      );
+    }
+  });
+}
