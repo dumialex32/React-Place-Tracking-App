@@ -1,7 +1,9 @@
 // "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=0&longitude=0"
 
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import useCities from "./contexts/useCities";
+import { formatDate } from "./helpers";
 
 import styles from "./Form.module.css";
 import Button from "./Button";
@@ -15,11 +17,27 @@ export function convertToEmoji(countryCode) {
 }
 
 function Form() {
+  const { cities, onSetCities } = useCities();
   const [cityName, setCityName] = useState("");
   const [country, setCountry] = useState("");
   const [date, setDate] = useState(new Date());
   const [notes, setNotes] = useState("");
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const mapLat = searchParams.get("lat");
+  const mapLng = searchParams.get("lng");
+
+  function handleAddCity() {
+    const newCity = {
+      cityName: cityName,
+      date: date.toISOString(),
+      notes: notes,
+      position: { lat: mapLat, lng: mapLng },
+    };
+
+    onSetCities((cities) => [...cities, newCity]);
+  }
 
   return (
     <form className={styles.form}>
@@ -52,7 +70,15 @@ function Form() {
       </div>
 
       <div className={styles.buttons}>
-        <Button type="primary">Form</Button>
+        <Button
+          type="primary"
+          onClick={(e) => {
+            e.preventDefault();
+            handleAddCity();
+          }}
+        >
+          Add
+        </Button>
         <Button
           type="back"
           onClick={(e) => {

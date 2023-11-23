@@ -15,26 +15,6 @@ CityList.propTypes = {
 function CityList() {
   const { cities, isLoading, onSetIsLoading, onSetCities } = useCities();
 
-  useEffect(() => {
-    async function fetchCities() {
-      try {
-        onSetIsLoading(true);
-        const res = await fetch(`${BASE_URL}/cities`);
-        if (!res.ok) throw new Error("No fetch data has been found");
-
-        const data = await res.json();
-
-        onSetCities(data);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        onSetIsLoading(false);
-      }
-    }
-
-    fetchCities();
-  }, []);
-
   if (isLoading) return <Spinner />;
   if (!cities.length) return <Message message={"Add your first city!"} />;
 

@@ -20,7 +20,6 @@ function CityItem({ city }) {
   const { cityName, emoji, date, id, position } = city;
 
   const { lat, lng } = position;
-  console.log(lat, lng);
 
   return (
     <li>
