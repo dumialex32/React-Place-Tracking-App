@@ -1,84 +1,72 @@
-// "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=0&longitude=0"
-
-import { useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
-import useCities from "./contexts/useCities";
-import { formatDate } from "./helpers";
-
 import styles from "./Form.module.css";
 import Button from "./Button";
+import { useNavigate } from "react-router";
+import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { useCities } from "./contexts/useCities";
 
-export function convertToEmoji(countryCode) {
-  const codePoints = countryCode
-    .toUpperCase()
-    .split("")
-    .map((char) => 127397 + char.charCodeAt());
-  return String.fromCodePoint(...codePoints);
-}
+const formatDate = (date) =>
+  new Intl.DateTimeFormat("en-EN", {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(new Date(date));
 
 function Form() {
-  const { cities, onSetCities } = useCities();
-  const [cityName, setCityName] = useState("");
-  const [country, setCountry] = useState("");
-  const [date, setDate] = useState(new Date());
-  const [notes, setNotes] = useState("");
   const navigate = useNavigate();
+  const { onSetCities } = useCities();
+  const [city, setCity] = useState("");
+  const [notes, setNotes] = useState("");
+  const [date, setDate] = useState(() => new Date());
   const [searchParams, setSearchParams] = useSearchParams();
 
   const mapLat = searchParams.get("lat");
   const mapLng = searchParams.get("lng");
 
-  function handleAddCity() {
+  console.log(mapLat);
+  console.log(mapLng);
+
+  function handleAddCity(e) {
+    e.preventDefault();
     const newCity = {
-      cityName: cityName,
+      cityName: city,
       date: date.toISOString(),
       notes: notes,
       position: { lat: mapLat, lng: mapLng },
+      id: crypto.randomUUID(),
     };
-
     onSetCities((cities) => [...cities, newCity]);
   }
 
   return (
-    <form className={styles.form}>
-      <div className={styles.row}>
-        <label htmlFor="cityName">City name</label>
-        <input
-          id="cityName"
-          onChange={(e) => setCityName(e.target.value)}
-          value={cityName}
-        />
-        {/* <span className={styles.flag}>{emoji}</span> */}
-      </div>
+    <form onSubmit={(e) => handleAddCity(e)}>
+      <label htmlFor="city">City name</label>
+      <input
+        id="city"
+        type="text"
+        value={city}
+        onChange={(e) => setCity(e.target.value)}
+      ></input>
 
-      <div className={styles.row}>
-        <label htmlFor="date">When did you go to {cityName}?</label>
-        <input
-          id="date"
-          onChange={(e) => setDate(e.target.value)}
-          value={date}
-        />
-      </div>
+      <label htmlFor="date">When did you go to ?</label>
+      <input
+        id="date"
+        type="text"
+        value={date}
+        onChange={(e) => setDate(e.target.value)}
+      ></input>
 
-      <div className={styles.row}>
-        <label htmlFor="notes">Notes about your trip to {cityName}</label>
-        <textarea
-          id="notes"
-          onChange={(e) => setNotes(e.target.value)}
-          value={notes}
-        />
-      </div>
+      <label htmlFor="notes">Notes about your trip to</label>
+      <textarea
+        id="notes"
+        value={notes}
+        onChange={(e) => setNotes(e.target.value)}
+      ></textarea>
 
-      <div className={styles.buttons}>
-        <Button
-          type="primary"
-          onClick={(e) => {
-            e.preventDefault();
-            handleAddCity();
-          }}
-        >
-          Add
-        </Button>
+      <div className={styles.formBtnContainer}>
+        <Button type="primary">Add</Button>
         <Button
           type="back"
           onClick={(e) => {
@@ -86,7 +74,7 @@ function Form() {
             navigate(-1);
           }}
         >
-          &larr; Back
+          Back
         </Button>
       </div>
     </form>
