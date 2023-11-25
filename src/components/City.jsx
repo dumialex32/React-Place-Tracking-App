@@ -5,19 +5,11 @@ import {
   useSearchParams,
 } from "react-router-dom";
 import styles from "./City.module.css";
-import { useDebugValue, useEffect, useState } from "react";
-import { AJAX } from "./helpers";
+import { useEffect } from "react";
+import { formatDate } from "./helpers";
 import Button from "./Button";
 import useCities from "./contexts/useCities";
 import Spinner from "./Spinner";
-
-const formatDate = (date) =>
-  new Intl.DateTimeFormat("en", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    weekday: "long",
-  }).format(new Date(date));
 
 function City() {
   const {
@@ -27,21 +19,12 @@ function City() {
     onGetCity,
   } = useCities();
   const { id } = useParams(); // url param
-  const [searchParams, setSearchParams] = useSearchParams(); // query string
 
   const navigate = useNavigate();
 
   useEffect(() => {
     onGetCity(id);
   }, [id]);
-
-  // TEMP DATA
-  // const currentCity = {
-  //   cityName: "Lisbon",
-  //   emoji: "🇵🇹",
-  //   date: "2027-10-31T15:59:59.138Z",
-  //   notes: "My favorite city so far!",
-  // };
 
   const { cityName, emoji, date, notes } = currentCity;
 

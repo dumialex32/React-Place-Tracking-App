@@ -44,6 +44,20 @@ function CitiesProvider({ children }) {
     }
   }
 
+  async function createCity(newCity) {
+    try {
+      setIsLoading(true);
+      const data = await AJAX(`${BASE_URL}/cities`, newCity);
+      console.log(data);
+
+      setCities((cities) => [...cities, data]);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   return (
     <CitiesContext.Provider
       value={{
@@ -54,6 +68,7 @@ function CitiesProvider({ children }) {
         onSetCurrentCity: setCurrentCity,
         currentCity,
         onGetCity: getCity,
+        onCreateCity: createCity,
       }}
     >
       {children}
