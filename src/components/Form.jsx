@@ -35,7 +35,7 @@ function Form() {
     const newCity = {
       cityName: city,
       country: country,
-      emoji: countryCode,
+      emoji: getFlagEmoji(countryCode),
       date: date.toISOString(),
       notes: notes,
       position: { lat: mapLat, lng: mapLng },
