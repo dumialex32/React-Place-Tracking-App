@@ -2,11 +2,27 @@ import Button from "../components/Button";
 import PageNav from "../components/PageNav";
 import styles from "./Login.module.css";
 import { useState } from "react";
+import { useAuth } from "../components/contexts/useAuth";
+import Message from "../components/Message";
+import ButtonBack from "../components/ButtonBack";
 
 export default function Login() {
   // PRE-FILL FOR DEV PURPOSES
+  const { login, logout, isAutentificated, error, dispatch } = useAuth();
   const [email, setEmail] = useState("jack@example.com");
   const [password, setPassword] = useState("qwerty");
+
+  function handleLogin(e) {
+    e.preventDefault();
+    login(email, password);
+  }
+
+  function handleResetAuth(e) {
+    e.preventDefault();
+    dispatch({ type: "resetAuth" });
+  }
+
+  console.log(error);
 
   return (
     <main className={styles.login}>
@@ -34,7 +50,16 @@ export default function Login() {
         </div>
 
         <div>
-          <Button type="primary">Login</Button>
+          {error ? (
+            <>
+              <Message message={error} />
+              <Button type="generic">Try Again</Button>
+            </>
+          ) : (
+            <Button type="primary" onClick={(e) => handleLogin(e)}>
+              Login
+            </Button>
+          )}
         </div>
       </form>
     </main>

@@ -9,6 +9,12 @@
   cursor: pointer;
 }
 
+.generic {
+  background-color: var(--color-light--2);
+  color: var(--color-dark--1);
+  font-weight: 600;
+}
+
 .primary {
   font-weight: 700;
   background-color: var(--color-brand--2);

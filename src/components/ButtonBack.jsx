@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 
-function ButtonBack() {
+function ButtonBack({ navigateTo }) {
   const navigate = useNavigate();
 
   return (
@@ -9,7 +10,7 @@ function ButtonBack() {
       type="back"
       onClick={(e) => {
         e.preventDefault();
-        navigate(-1);
+        navigate(navigateTo);
       }}
     >
       Back
