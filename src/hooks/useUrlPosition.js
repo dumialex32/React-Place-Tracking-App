@@ -5,11 +5,9 @@ export function useUrlPosition() {
 
   const lat = searchParams.get("lat");
   const lng = searchParams.get("lng");
-  console.log(lat, lng);
 
   function setQueryParams(paramsObject) {
     const newParams = new URLSearchParams(searchParams);
-    console.log(paramsObject);
 
     // Update multiple key-value pairs
     Object.entries(paramsObject).forEach(([key, value]) => {

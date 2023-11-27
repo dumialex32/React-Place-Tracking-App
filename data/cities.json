@@ -1,40 +1,64 @@
 {
   "cities": [
     {
-      "cityName": "Lisbon",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
-      "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
-      },
-      "id": 73930385
-    },
-    {
-      "cityName": "Madrid",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2027-07-15T08:22:53.976Z",
+      "cityName": "Asin Bereku",
+      "country": "Ghana",
+      "emoji": "🇬🇭",
+      "date": "2023-11-27T17:15:09.008Z",
       "notes": "",
       "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
+        "lat": 5.7690358661221355,
+        "lng": -1.34033203125
       },
-      "id": 17806751
+      "id": 984343202
     },
     {
-      "cityName": "Berlin",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
+      "cityName": "Comoe National Park",
+      "country": "Cote d'Ivoire",
+      "emoji": "🇨🇮",
+      "date": "2023-11-27T18:40:06.441Z",
+      "notes": "",
       "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
+        "lat": 9.275622176792112,
+        "lng": -4.108886718750001
       },
-      "id": 984343197
+      "id": 984343203
+    },
+    {
+      "cityName": "Sikasso",
+      "country": "Mali",
+      "emoji": "🇲🇱",
+      "date": "2023-11-27T18:40:08.342Z",
+      "notes": "",
+      "position": {
+        "lat": 11.910353555774114,
+        "lng": -6.306152343750001
+      },
+      "id": 984343204
+    },
+    {
+      "cityName": "Yanfolila",
+      "country": "Mali",
+      "emoji": "🇲🇱",
+      "date": "2023-11-27T18:40:14.708Z",
+      "notes": "",
+      "position": {
+        "lat": 11.566143767762856,
+        "lng": -8.041992187500002
+      },
+      "id": 984343205
+    },
+    {
+      "cityName": "Kita",
+      "country": "Mali",
+      "emoji": "🇲🇱",
+      "date": "2023-11-27T18:46:51.540Z",
+      "notes": "",
+      "position": {
+        "lat": 13.132979019087484,
+        "lng": -10.107421875000002
+      },
+      "id": 984343206
     }
   ]
 }

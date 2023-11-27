@@ -6,16 +6,20 @@ function timeout(s) {
   });
 }
 
-export async function AJAX(url, data) {
-  const fetchPro = data
-    ? fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-    : fetch(url);
+export async function AJAX(url, method, data) {
+  console.log(method);
+  const fetchPro =
+    method === "POST" && data
+      ? fetch(url, {
+          method: method,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+      : method === "DELETE" && !data
+      ? fetch(url, { method: method })
+      : fetch(url);
 
   try {
     await Promise.race([fetchPro, timeout(5)]);

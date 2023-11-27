@@ -12,12 +12,7 @@ import useCities from "./contexts/useCities";
 import Spinner from "./Spinner";
 
 function City() {
-  const {
-    currentCity,
-    isLoading,
-
-    onGetCity,
-  } = useCities();
+  const { currentCity, isLoading, onGetCity } = useCities();
   const { id } = useParams(); // url param
 
   const navigate = useNavigate();

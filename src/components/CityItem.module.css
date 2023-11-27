@@ -36,8 +36,11 @@
   font-size: 1.5rem;
 }
 
-
-.deleteBtn:hover {
-  background-color: var(--color-brand--1);
-  color: var(--color-dark--1);
+.deleteBtn {
+  background-color: var(--color-dark--1);
+  color: var(--color-light--2);
+  border: none;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 100%;
 }

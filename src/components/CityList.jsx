@@ -4,8 +4,6 @@ import CityItem from "./CityItem";
 import Spinner from "./Spinner";
 import Message from "./Message";
 import useCities from "./contexts/useCities";
-import { useEffect } from "react";
-import { BASE_URL } from "./config";
 
 CityList.propTypes = {
   cities: PropTypes.array,
@@ -13,7 +11,7 @@ CityList.propTypes = {
 };
 
 function CityList() {
-  const { cities, isLoading, onSetIsLoading, onSetCities } = useCities();
+  const { cities, isLoading } = useCities();
 
   if (isLoading) return <Spinner />;
   if (!cities.length) return <Message message={"Add your first city!"} />;

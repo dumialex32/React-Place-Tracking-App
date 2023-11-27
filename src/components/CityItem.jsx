@@ -16,10 +16,16 @@ CityItem.propTypes = {
 };
 
 function CityItem({ city }) {
-  const { currentCity } = useCities();
+  const { currentCity, onRemoveCity } = useCities();
   const { cityName, emoji, date, id, position } = city;
 
   const { lat, lng } = position;
+
+  async function handleRemoveCity(e) {
+    e.preventDefault();
+
+    await onRemoveCity(id);
+  }
 
   return (
     <li>
@@ -32,7 +38,12 @@ function CityItem({ city }) {
         <span className={styles.emoji}>{emoji}</span>
         <h3 className={styles.name}>{cityName}</h3>
         <time className={styles.date}>{formatDate(date)}</time>
-        <button className={styles.deleteBtn}>&times;</button>
+        <button
+          className={styles.deleteBtn}
+          onClick={(e) => handleRemoveCity(e)}
+        >
+          &times;
+        </button>
       </Link>
     </li>
   );

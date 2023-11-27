@@ -26,7 +26,6 @@ function Form() {
   const [mapLat, mapLng, setQueryParams] = useUrlPosition();
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
   const [geocodingError, setGeocodingError] = useState("");
-  console.log(city);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -94,6 +93,7 @@ function Form() {
           id="city"
           type="text"
           value={city}
+          readOnly
           // onChange={(e) => setCurCity(e.target.value)}
         ></input>
         <span className={styles.flag}>{countryCode}</span>
