@@ -10,10 +10,9 @@ const FAKE_USER = {
 };
 
 function User() {
-  const user = FAKE_USER;
-  const { user: loggedInUser, logout } = useAuth();
+  // const user = FAKE_USER;
+  const { user, logout } = useAuth();
   const navigate = useNavigate();
-  console.log(loggedInUser);
 
   function handleClick(e) {
     e.preventDefault();

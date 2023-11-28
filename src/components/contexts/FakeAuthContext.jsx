@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { createContext, useEffect, useReducer } from "react";
-import { useNavigate } from "react-router";
 
 const FAKE_USER = {
   name: "Jack",
@@ -46,12 +45,8 @@ function AuthProvider({ children }) {
     reducer,
     initialState
   );
-  const navigate = useNavigate();
-  console.log(isAuthentificated);
 
-  useEffect(() => {
-    if (isAuthentificated === true) navigate("/app");
-  }, [isAuthentificated]);
+  console.log(isAuthentificated);
 
   function login(email, pasword) {
     email === FAKE_USER.email && pasword === FAKE_USER.password

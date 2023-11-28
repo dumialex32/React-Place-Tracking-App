@@ -1,20 +1,26 @@
 import Button from "../components/Button";
 import PageNav from "../components/PageNav";
 import styles from "./Login.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "../components/contexts/useAuth";
 import Message from "../components/Message";
 import ButtonBack from "../components/ButtonBack";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   // PRE-FILL FOR DEV PURPOSES
-  const { login, logout, isAutentificated, error, dispatch } = useAuth();
+  const { login, logout, isAuthentificated, error, dispatch } = useAuth();
   const [email, setEmail] = useState("jack@example.com");
   const [password, setPassword] = useState("qwerty");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthentificated === true) navigate("/app", { replace: true });
+  }, [isAuthentificated, navigate]);
 
   function handleLogin(e) {
     e.preventDefault();
-    login(email, password);
+    if (email && password) login(email, password);
   }
 
   function handleResetAuth(e) {
