@@ -49,14 +49,14 @@
       "id": 984343205
     },
     {
-      "cityName": "Kita",
-      "country": "Mali",
-      "emoji": "🇲🇱",
-      "date": "2023-11-27T18:46:51.540Z",
-      "notes": "",
+      "cityName": "Niakaramandougou",
+      "country": "Cote d'Ivoire",
+      "emoji": "🇨🇮",
+      "date": "2023-12-02T16:46:26.883Z",
+      "notes": "cccc",
       "position": {
-        "lat": 13.132979019087484,
-        "lng": -10.107421875000002
+        "lat": 8.646195681181904,
+        "lng": -5.229492187500001
       },
       "id": 984343206
     }

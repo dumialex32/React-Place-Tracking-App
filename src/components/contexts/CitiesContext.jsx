@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useEffect, createContext, useReducer } from "react";
+import { useEffect, createContext, useReducer, useCallback } from "react";
 import { AJAX } from "../helpers";
 import { BASE_URL } from "../config";
 
@@ -69,17 +69,20 @@ function CitiesProvider({ children }) {
     fetchCities();
   }, []);
 
-  async function getCity(id) {
-    if (Number(id) === currentCity.id) return;
-    try {
-      dispatch({ type: "loading" });
-      const data = await AJAX(`${BASE_URL}/cities/${id}`);
-      dispatch({ type: "city/loaded", payload: data });
-    } catch (err) {
-      console.error(err);
-      dispatch({ type: "rejected", payload: err.message });
-    }
-  }
+  const getCity = useCallback(
+    async (id) => {
+      if (Number(id) === currentCity.id) return;
+      try {
+        dispatch({ type: "loading" });
+        const data = await AJAX(`${BASE_URL}/cities/${id}`);
+        dispatch({ type: "city/loaded", payload: data });
+      } catch (err) {
+        console.error(err);
+        dispatch({ type: "rejected", payload: err.message });
+      }
+    },
+    [currentCity.id]
+  );
 
   async function createCity(newCity) {
     try {
