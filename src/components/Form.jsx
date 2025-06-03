@@ -6,7 +6,7 @@ import { useEffect, useState, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useCities } from "./contexts/useCities";
 import { useUrlPosition } from "../hooks/useUrlPosition";
-import { AJAX, formatDate, getFlagEmoji } from "./helpers";
+import { AJAX, formatDate, getFlagEmoji } from "../helpers";
 import { latLng } from "leaflet";
 import { HERE_GEO_API_KEY } from "./config";
 import ButtonBack from "./ButtonBack";
@@ -40,6 +40,7 @@ function Form() {
       position: { lat: mapLat, lng: mapLng },
       // id: crypto.randomUUID(),
     };
+
     await onCreateCity(newCity);
 
     navigate("/app/cities");

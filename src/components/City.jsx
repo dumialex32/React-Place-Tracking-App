@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import styles from "./City.module.css";
 import { useEffect } from "react";
-import { formatDate } from "./helpers";
+import { formatDate } from "./../helpers";
 import Button from "./Button";
 import useCities from "./contexts/useCities";
 import Spinner from "./Spinner";
@@ -30,7 +30,7 @@ function City() {
       <div className={styles.row}>
         <h6>City name</h6>
         <h3>
-          <span>{emoji}</span> {cityName}
+          {cityName} <span>{emoji}</span>
         </h3>
       </div>
       <div className={styles.row}>

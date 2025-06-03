@@ -22,16 +22,11 @@ export async function AJAX(url, method, data) {
       : fetch(url);
 
   try {
-    await Promise.race([fetchPro, timeout(5)]);
-
-    const res = await fetchPro;
+    const res = await Promise.race([fetchPro, timeout(5)]);
     if (!res.ok) throw new Error("No data to be fetched");
-
     const data = await res.json();
-
     if (data === null || (Array.isArray(data) && data.length === 0))
       throw new Error("No data to be fetched");
-
     return data;
   } catch (err) {
     console.error(err);

@@ -1,64 +1,64 @@
 {
   "cities": [
     {
-      "cityName": "Asin Bereku",
-      "country": "Ghana",
-      "emoji": "🇬🇭",
-      "date": "2023-11-27T17:15:09.008Z",
-      "notes": "",
-      "position": {
-        "lat": 5.7690358661221355,
-        "lng": -1.34033203125
-      },
-      "id": 984343202
-    },
-    {
-      "cityName": "Comoe National Park",
+      "id": "248f",
+      "cityName": "Brobo",
       "country": "Cote d'Ivoire",
       "emoji": "🇨🇮",
-      "date": "2023-11-27T18:40:06.441Z",
+      "date": "2025-06-03T14:17:56.892Z",
       "notes": "",
       "position": {
-        "lat": 9.275622176792112,
-        "lng": -4.108886718750001
-      },
-      "id": 984343203
+        "lat": 7.645664723491027,
+        "lng": -4.812011718750001
+      }
     },
     {
-      "cityName": "Sikasso",
+      "id": "eabf",
+      "cityName": "Kenieba",
       "country": "Mali",
       "emoji": "🇲🇱",
-      "date": "2023-11-27T18:40:08.342Z",
+      "date": "2025-06-03T14:24:04.408Z",
       "notes": "",
       "position": {
-        "lat": 11.910353555774114,
-        "lng": -6.306152343750001
-      },
-      "id": 984343204
+        "lat": 12.254127737657381,
+        "lng": -10.371093750000002
+      }
     },
     {
-      "cityName": "Yanfolila",
+      "id": "0d08",
+      "cityName": "Kankossa",
+      "country": "Mauritania",
+      "emoji": "🇲🇷",
+      "date": "2025-06-03T14:24:15.166Z",
+      "notes": "",
+      "position": {
+        "lat": 16.04581345375218,
+        "lng": -10.78857421875
+      }
+    },
+    {
+      "id": "76e2",
+      "cityName": "Menaka",
       "country": "Mali",
       "emoji": "🇲🇱",
-      "date": "2023-11-27T18:40:14.708Z",
+      "date": "2025-06-03T14:24:17.803Z",
       "notes": "",
       "position": {
-        "lat": 11.566143767762856,
-        "lng": -8.041992187500002
-      },
-      "id": 984343205
+        "lat": 17.832374329567518,
+        "lng": 3.3398437500000004
+      }
     },
     {
-      "cityName": "Niakaramandougou",
-      "country": "Cote d'Ivoire",
-      "emoji": "🇨🇮",
-      "date": "2023-12-02T16:46:26.883Z",
-      "notes": "cccc",
+      "id": "4c75",
+      "cityName": "Goure",
+      "country": "Niger (the)",
+      "emoji": "🇳🇪",
+      "date": "2025-06-03T14:24:21.542Z",
+      "notes": "",
       "position": {
-        "lat": 8.646195681181904,
-        "lng": -5.229492187500001
-      },
-      "id": 984343206
+        "lat": 14.26438308756265,
+        "lng": 10.327148437500002
+      }
     }
   ]
 }

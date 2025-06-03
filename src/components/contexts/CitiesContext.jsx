@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useEffect, createContext, useReducer, useCallback } from "react";
-import { AJAX } from "../helpers";
+import { AJAX } from "../../helpers";
 import { BASE_URL } from "../config";
 
 const CitiesContext = createContext();
